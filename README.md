@@ -17,13 +17,15 @@ web que he desarrollado. Pensado para publicarse gratis en **GitHub Pages**.
 
 ## Personalizar
 
-- **Tu nombre**: reemplaza `Tu Nombre` en `index.html` (`<meta name="author">`).
-  Si quieres mostrarlo en pantalla, agrégalo en el `<h1>` o el `eyebrow` del hero.
+- **Nombre**: aparece como `Vicente Orozco Alvarado` en el `eyebrow` del hero, el
+  footer y `<meta name="author">` de `index.html`.
 - **Contacto**: correo y WhatsApp están en la sección `#contacto` de `index.html`
   (`mailto:orovic137@gmail.com` y `https://wa.me/593985190979`).
 - **Proyectos**: edita el array `PROJECTS` en `assets/main.js`. Cada objeto acepta
   `name`, `url`, `category`, `description`, `tech` (array) y `private: true` opcional.
 - **Colores**: variables CSS en `:root` dentro de `assets/styles.css`.
+  Paleta actual: Azul Marino `#1E3A8A`, Verde Esmeralda `#10B981`,
+  Gris Slate `#64748B`, Naranja Vibrante `#F59E0B`.
 
 ## Capturas de pantalla
 
