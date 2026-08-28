@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Portafolio Web · Desarrollador Full-Stack</title>
+<meta name="description" content="Portafolio de sitios y aplicaciones web desarrollados en Ecuador: e-commerce, plataformas a medida, landings y paneles de gestión." />
+<meta name="author" content="Tu Nombre" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Portafolio Web · Desarrollador Full-Stack" />
+<meta property="og:description" content="Sitios y aplicaciones web: e-commerce, plataformas a medida, landings y paneles de gestión." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230b0b0f'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='%237c5cff' font-family='monospace'%3E%26lt;/%26gt;%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+<div class="bg-grid" aria-hidden="true"></div>
+
+<header class="site-header">
+  <a href="#top" class="brand">&lt;/&gt; <span>portafolio</span></a>
+  <nav class="nav">
+    <a href="#proyectos">Proyectos</a>
+    <a href="#stack">Stack</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <p class="eyebrow">Desarrollador Web · Full-Stack · Ecuador</p>
+    <h1>Construyo sitios y aplicaciones web que <span class="grad">funcionan de verdad</span>.</h1>
+    <p class="lead">
+      E-commerce con WordPress &amp; WooCommerce, plataformas a medida en PHP y Laravel,
+      landings de alto impacto y paneles de gestión internos. Estos son algunos de los
+      proyectos que he desarrollado y puesto en producción.
+    </p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
+      <a class="btn btn-ghost" href="#contacto">Contáctame</a>
+    </div>
+    <ul class="hero-stats">
+      <li><strong>8+</strong><span>proyectos en producción</span></li>
+      <li><strong>5+</strong><span>tecnologías / stacks</span></li>
+      <li><strong>100%</strong><span>sitios en vivo</span></li>
+    </ul>
+  </section>
+
+  <section id="proyectos" class="projects">
+    <div class="section-head">
+      <h2>Proyectos</h2>
+      <p>Selecciona una tecnología para filtrar.</p>
+    </div>
+
+    <div class="filters" id="filters" role="tablist" aria-label="Filtrar por tecnología"></div>
+
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <section id="stack" class="stack">
+    <div class="section-head">
+      <h2>Stack técnico</h2>
+      <p>Herramientas con las que trabajo a diario.</p>
+    </div>
+    <ul class="stack-list">
+      <li>WordPress</li>
+      <li>WooCommerce</li>
+      <li>Elementor</li>
+      <li>PHP (a medida)</li>
+      <li>Laravel</li>
+      <li>MySQL</li>
+      <li>HTML5 / CSS3</li>
+      <li>JavaScript</li>
+      <li>APIs de pago</li>
+      <li>Exportación PDF / Excel</li>
+      <li>Administración de VPS</li>
+      <li>Paneles de administración propios</li>
+    </ul>
+  </section>
+
+  <section id="contacto" class="contact">
+    <div class="section-head">
+      <h2>¿Trabajamos juntos?</h2>
+      <p>Escríbeme y conversamos sobre tu proyecto.</p>
+    </div>
+    <div class="contact-cards">
+      <a class="contact-card" href="mailto:orovic137@gmail.com">
+        <span class="contact-ico" aria-hidden="true">✉</span>
+        <span class="contact-label">Correo</span>
+        <span class="contact-value">orovic137@gmail.com</span>
+      </a>
+      <a class="contact-card" href="https://wa.me/593985190979" target="_blank" rel="noopener">
+        <span class="contact-ico" aria-hidden="true">✆</span>
+        <span class="contact-label">WhatsApp / Celular</span>
+        <span class="contact-value">+593 98 519 0979</span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>© <span id="year"></span> · Portafolio Web · Hecho con HTML, CSS y JavaScript.</p>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>
