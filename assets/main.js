@@ -5,22 +5,6 @@
 
 const PROJECTS = [
   {
-    name: "I-ONE",
-    url: "https://ionec.site/",
-    category: "E-commerce",
-    description:
-      "Academia de inglés con tienda digital: vende materiales propios (lecturas, actividades y ejercicios por nivel) que el estudiante compra, agrega al carrito y descarga desde su cuenta.",
-    tech: ["WordPress", "WooCommerce", "Elementor"],
-  },
-  {
-    name: "Refugio de Cera",
-    url: "https://refugiodecera.com/",
-    category: "E-commerce",
-    description:
-      "Tienda online de velas artesanales y aromáticas hechas a mano en Ecuador: bouquets florales, velas de masaje, wax melts y kits de recuerdos.",
-    tech: ["WordPress", "WooCommerce"],
-  },
-  {
     name: "GAPS Travel",
     url: "https://www.gapstravel.com/",
     category: "Web corporativa",
