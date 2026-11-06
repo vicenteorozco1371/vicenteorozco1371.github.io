@@ -10,7 +10,8 @@ web que he desarrollado. Pensado para publicarse gratis en **GitHub Pages**.
 ├── index.html          # Página única
 ├── assets/
 │   ├── styles.css      # Estilos (tema oscuro minimalista)
-│   └── main.js         # Datos de los proyectos + render + filtros
+│   ├── main.js         # Datos de los proyectos + render + filtros
+│   └── og-image.png    # Imagen de vista previa al compartir (1200×630)
 ├── .nojekyll           # Evita que GitHub Pages procese el sitio con Jekyll
 └── README.md
 ```
@@ -26,36 +27,32 @@ web que he desarrollado. Pensado para publicarse gratis en **GitHub Pages**.
 - **Colores**: variables CSS en `:root` dentro de `assets/styles.css`.
   Paleta actual: Azul Marino `#1E3A8A`, Verde Esmeralda `#10B981`,
   Gris Slate `#64748B`, Naranja Vibrante `#F59E0B`.
+  El texto secundario usa `--text-mute` (`#94A3B8`), un gris más claro que el
+  Gris Slate de marca, para cumplir el contraste mínimo de lectura (WCAG AA).
+- **Vista previa al compartir**: `assets/og-image.png` (1200×630) se muestra al
+  enviar el enlace por WhatsApp, LinkedIn o Facebook. Si cambias el titular, regenera
+  la imagen. Las redes guardan la vista previa en caché; para forzar la actualización
+  usa el [Sharing Debugger de Facebook](https://developers.facebook.com/tools/debug/).
 
 ## Capturas de pantalla
 
 Las imágenes de cada tarjeta se generan automáticamente con el servicio gratuito
 **WordPress mShots** (`s.wordpress.com/mshots`). La primera carga de un sitio nuevo
-puede tardar unos segundos mientras el servicio genera la captura; el código reintenta
+puede tardar unos segundos mientras el servicio genera la captura. Mientras tanto,
+mShots devuelve una imagen provisional de otro tamaño; el código la detecta, reintenta
 varias veces y, si falla, muestra un recuadro con las iniciales del proyecto.
 
 Si prefieres imágenes propias (más rápidas y estables), guarda un JPG/PNG por proyecto
 en `assets/` y cambia la función `shotUrl()` de `main.js` para que devuelva esa ruta.
 
-## Publicar en GitHub Pages
+## Publicación
 
-1. Crea un repositorio en GitHub (por ejemplo `portafolio`).
-2. Sube estos archivos:
-   ```bash
-   git init
-   git add .
-   git commit -m "Portafolio inicial"
-   git branch -M main
-   git remote add origin https://github.com/TU_USUARIO/portafolio.git
-   git push -u origin main
-   ```
-3. En GitHub: **Settings → Pages → Build and deployment**
-   - Source: `Deploy from a branch`
-   - Branch: `main` / carpeta `/ (root)` → **Save**
-4. En 1–2 minutos el sitio quedará en `https://TU_USUARIO.github.io/portafolio/`.
+El sitio se publica con **GitHub Pages** desde la rama `main` (carpeta raíz) del repo
+[`vicenteorozco1371/vicenteorozco1371.github.io`](https://github.com/vicenteorozco1371/vicenteorozco1371.github.io)
+y queda en vivo en <https://vicenteorozco1371.github.io/>.
 
-> Si nombras el repo `TU_USUARIO.github.io`, el sitio se sirve directo en
-> `https://TU_USUARIO.github.io/` sin subcarpeta.
+Para actualizarlo basta con hacer commit y `git push origin main`; GitHub Pages
+redespliega en 1–2 minutos.
 
 ## Ver en local
 

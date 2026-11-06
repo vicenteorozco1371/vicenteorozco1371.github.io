@@ -8,7 +8,8 @@
   --border-soft: #1e293b; /* slate 800 */
   --text: #f1f5f9;        /* slate 100 */
   --text-dim: #cbd5e1;    /* slate 300 */
-  --text-mute: #64748b;   /* Gris Slate — Profesionalismo */
+  --slate: #64748b;       /* Gris Slate — Profesionalismo (color de marca) */
+  --text-mute: #94a3b8;   /* slate 400 — texto secundario con contraste AA sobre fondo oscuro */
   --navy: #1e3a8a;        /* Azul Marino — Autoridad / Confianza */
   --accent: #10b981;      /* Verde Esmeralda — Crecimiento / Datos */
   --accent-2: #f59e0b;    /* Naranja Vibrante — Innovación / Acción */
@@ -314,7 +315,9 @@ section { padding: 5rem 0; }
 
 /* ===== Responsive ===== */
 @media (max-width: 640px) {
-  .nav { display: none; }
+  .site-header { padding: 0.85rem 1rem; }
+  .brand span { display: none; }
+  .nav { gap: 1.1rem; font-size: 0.88rem; }
   section { padding: 3.5rem 0; }
   .hero-stats { gap: 1.5rem; }
 }

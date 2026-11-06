@@ -73,10 +73,15 @@ const PROJECTS = [
 
 /* ---------- Screenshot automático ----------
    Servicio principal: WordPress mShots (gratis, sin API key).
-   La primera visita puede devolver una imagen "generándose";
-   por eso reintentamos un par de veces. Si falla, mostramos
-   un placeholder con el nombre del proyecto.                    */
-function shotUrl(url, w = 1280, h = 800) {
+   Mientras genera la captura, mShots responde con una imagen
+   "cargando" de otro tamaño (sin error HTTP). Si la imagen no
+   llega con el ancho pedido, la tratamos como provisional y
+   reintentamos. Si falla, mostramos las iniciales del proyecto.
+   800×500 mantiene el mismo encuadre que 1280×800 y pesa menos. */
+const SHOT_W = 800;
+const SHOT_H = 500;
+
+function shotUrl(url, w = SHOT_W, h = SHOT_H) {
   return `https://s.wordpress.com/mshots/v1/${encodeURIComponent(url)}?w=${w}&h=${h}`;
 }
 
@@ -115,18 +120,23 @@ function makeCard(p) {
 
   const img = card.querySelector("img");
   let attempts = 0;
-  const maxAttempts = 4;
+  const maxAttempts = 5;
   const load = () => {
     img.src = shotUrl(p.url) + "&_t=" + attempts;
   };
   img.addEventListener("error", () => {
     if (attempts++ < maxAttempts) {
-      setTimeout(load, 2500);
+      setTimeout(load, 3000);
     } else {
       img.remove(); // deja visible el placeholder
     }
   });
   img.addEventListener("load", () => {
+    const provisional = img.naturalWidth !== SHOT_W;
+    if (provisional && attempts++ < maxAttempts) {
+      setTimeout(load, 3000); // captura aún generándose: esperar y reintentar
+      return;
+    }
     img.style.opacity = "1";
   });
   img.style.opacity = "0";
@@ -144,12 +154,18 @@ function buildFilters() {
 
   techs.forEach((t, i) => {
     const btn = document.createElement("button");
+    btn.type = "button";
     btn.className = "filter" + (i === 0 ? " is-active" : "");
     btn.textContent = t;
     btn.dataset.filter = t.toLowerCase();
+    btn.setAttribute("aria-pressed", i === 0 ? "true" : "false");
     btn.addEventListener("click", () => {
-      document.querySelectorAll(".filter").forEach((b) => b.classList.remove("is-active"));
+      document.querySelectorAll(".filter").forEach((b) => {
+        b.classList.remove("is-active");
+        b.setAttribute("aria-pressed", "false");
+      });
       btn.classList.add("is-active");
+      btn.setAttribute("aria-pressed", "true");
       applyFilter(btn.dataset.filter);
     });
     wrap.appendChild(btn);
@@ -158,7 +174,8 @@ function buildFilters() {
 
 function applyFilter(f) {
   document.querySelectorAll(".card").forEach((card) => {
-    const show = f === "todos" || card.dataset.tech.includes(f);
+    // Coincidencia exacta por tecnología (evita que "java" coincida con "javascript")
+    const show = f === "todos" || card.dataset.tech.split("|").includes(f);
     card.style.display = show ? "" : "none";
   });
 }
